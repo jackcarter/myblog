@@ -1,0 +1,12 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/reset.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+<div id="container">
+{% include "blog/header.html" %}
+
+{% block body %}
+{% endblock %}
+
+{% include "blog/footer.html" %}
+</div>

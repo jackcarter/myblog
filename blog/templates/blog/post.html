@@ -1,0 +1,11 @@
+<div class="post" id="{{ post.slug }}">
+    <h1><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></h1>
+    <p>{{ post.body }}</p>
+    <div id="categories">
+        {% if post.categories %}
+            {% for category in post.categories.all %}
+                <span class="category"><a href="{% url 'blog:category' category.slug%}">{{ category }}</a></span>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

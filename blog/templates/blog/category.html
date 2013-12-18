@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block body %}
+    <div id="posts">
+        {% if posts %}
+            {% for post in posts %}
+                {% include "blog/post.html" %}
+            {% endfor %}
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+        <div id="pagination">
+            {% if page.has_other_pages %}
+                {% if page.has_next %}
+                    <a id="pagination-next" href="{% url 'blog:category' category_slug page.next_page_number %}">Next Page</a>
+                {% endif %}
+                {% if page.has_previous %}
+                    <a id="pagination-previous" href="{% url 'blog:category' category_slug page.previous_page_number %}">Previous Page</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
